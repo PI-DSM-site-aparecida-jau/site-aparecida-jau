@@ -116,27 +116,36 @@ Neste projeto, os requisitos foram divididos em funcionais e não funcionais. Os
 A definição desses requisitos contribuiu para uma melhor organização do desenvolvimento, evitando retrabalho e facilitando a validação final da aplicação.
 
 ### 4.1 Requisitos funcionais  
-- 4.1.1 RF1 - Cadastrar notícias
-- 4.1.2 RF2 - Editar e excluir notícias
-- 4.1.3 RF3 - Exibir lista de notícias
-- 4.1.4 RF4 - Visualizar notícia completa
-- 4.1.5 RF5 - Fazer upload de imagens para notícias
-- 4.1.6 RF6 - Gerar URL amigável (slug) para notícias
-- 4.1.7 RF7 - Cadastrar boletins informativos
-- 4.1.8 RF8 - Exibir boletins informativos
-- 4.1.9 RF9 - Permitir download de boletins em PDF
-- 4.1.10 RF10 - Realizar busca de boletins por mês ou ano
-- 4.1.11 RF11 - Exibir imagens dentro do conteúdo da notícia
-- 4.1.12 RF12 - Enviar mensagens pela página de contato
+- 4.1.1 RF01 - Cadastrar notícia
+- 4.1.2 RF02 - Gerar URL amigável (slug) para notícias
+- 4.1.3 RF03 - Visualizar notícia
+- 4.1.4 RF04 - Atualizar notícia
+- 4.1.5 RF05 - Excluir notícia
+- 4.1.6 RF06 - Exibir lista de notícias
+- 4.1.7 RF07 - Filtrar notícia
+- 4.1.8 RF08 - Cadastrar álbum
+- 4.1.9 RF09 - Visualizar álbum
+- 4.1.10 RF10 - Atualizar álbum
+- 4.1.11 RF11 - Excluir álbum
+- 4.1.12 RF12 - Exibir lista de álbuns
+- 4.1.13 RF13 - Filtrar álbum
+- 4.1.14 RF14 - Cadastrar boletim informativo
+- 4.1.15 RF15 - Visualizar boletim informativo
+- 4.1.16 RF16 - Atualizar boletim informativo
+- 4.1.17 RF17 - Excluir boletim informativo
+- 4.1.18 RF18 - Exibir lista de boletins informativos
+- 4.1.19 RF19 - Filtrar boletim informativo
+- 4.1.20 RF20 - Permitir download de boletins informativos em PDF
 
 ### 4.2 Requisitos não funcionais  
-- 4.2.1 RNF1 - O sistema deve possuir interface simples e intuitiva
-- 4.2.2 RNF2 - O tempo de carregamento das páginas deve ser rápido
-- 4.2.3 RNF3 - A aplicação deve ser responsiva, adaptando-se a diferentes dispositivos
-- 4.2.4 RNF4 - O sistema deve manter organização adequada dos arquivos (imagens e PDFs)
-- 4.2.5 RNF5 - O código deve ser estruturado para facilitar manutenção e evolução
-- 4.2.6 RNF6 - A aplicação deve ser compatível com os principais navegadores
-- 4.2.7 RNF7 - O sistema deve garantir integridade e consistência dos dados armazenados
+- 4.2.1 RNF01 — Usabilidade: a interface deve ser simples, clara e compreensível.
+- 4.2.2 RNF02 — Responsividade: o site deve adaptar-se a computadores, tablets e smartphones.
+- 4.2.3 RNF03 — Segurança: a área administrativa deve exigir autenticação e as credenciais devem ser armazenadas de maneira segura.
+- 4.2.4 RNF04 — Desempenho: as páginas devem carregar os conteúdos sem processamento desnecessário.
+- 4.2.5 RNF05 — Manutenibilidade: o código deve facilitar correções e inclusão de novas funcionalidades.
+- 4.2.6 RNF06 — Compatibilidade: o sistema deve funcionar nos principais navegadores modernos.
+- 4.2.7 RNF07 — Integridade dos dados: as informações devem ser armazenadas de forma estruturada e consistente.
+- 4.2.8 RNF08 — Segurança de arquivos: arquivos enviados devem ser tratados de forma controlada.
 
 ---
 
