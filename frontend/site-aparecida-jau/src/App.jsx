@@ -20,6 +20,7 @@ import PrivateRoute from "./routes/PrivateRoute.jsx";
 import MainLayout from "./layouts/MainLayout.jsx";
 import AuthLayout from "./layouts/AuthLayout.jsx";
 import AdminLayout from "./layouts/AdminLayout.jsx";
+import WhatsAppButton from "./Components/WhatsAppButton.jsx";
 
 function App() {
 
@@ -121,6 +122,8 @@ function App() {
         </Route>
 
       </Routes>
+
+      <WhatsAppButton />
 
     </BrowserRouter>
 

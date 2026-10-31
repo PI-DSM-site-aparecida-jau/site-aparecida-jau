@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo_aparecida from "./../assets/img/logo/logo-aparecida.png";
-import facebook_circle from "./../assets/img/logo/facebook-circle.jpeg";
+import facebook_circle from "./../assets/img/logo/facebook-circle.png";
 import instagram_circle from "./../assets/img/logo/instagram-circle.png";
 import youtube_circle from "./../assets/img/logo/youtube-circle.png";
-import whatsapp_square from "./../assets/img/logo/whatsapp-square.png";
+import whatsapp_circle from "./../assets/img/logo/whatsapp-circle.png";
 
 const Navbar = () => {
 

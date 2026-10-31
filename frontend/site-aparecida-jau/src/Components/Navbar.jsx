@@ -2,19 +2,17 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import logo_aparecida from "./../assets/img/logo/logo-aparecida.png";
-import facebook_circle from "./../assets/img/logo/facebook-circle.jpeg";
+import facebook_circle from "./../assets/img/logo/facebook-circle.png";
 import instagram_circle from "./../assets/img/logo/instagram-circle.png";
 import youtube_circle from "./../assets/img/logo/youtube-circle.png";
-import whatsapp_square from "./../assets/img/logo/whatsapp-square.png";
 
 const Navbar = () => {
 
-  const [openDropdown, setOpenDropdown] = useState(false);
   const [menuMobile, setMenuMobile] = useState(false);
 
   return (
 
-    <header className='flex flex-col items-center mt-[8px]'>
+    <header className='flex flex-col items-center'>
 
       {/* ========================= */}
       {/* DESKTOP */}
@@ -26,7 +24,7 @@ const Navbar = () => {
 
         <Link to="/">
           <img
-            className="w-[250px]"
+            className="w-[271px] py-[14px]"
             src={logo_aparecida}
             alt="Logo Paróquia Nossa Senhora Aparecida"
           />
@@ -34,79 +32,29 @@ const Navbar = () => {
 
         {/* MENU */}
 
-        <div className='w-full h-[35px] flex justify-center relative'>
+        <div className='w-full h-[60px] border-1 border-[#D9D9D9] border-bottom flex items-center justify-center relative'>
 
           <nav>
 
             <ul className='flex items-center gap-[30px] list-none'>
 
-              <li>
-                <Link to="/">Home</Link>
+              <li className='text-[12px] font-bold'>
+                <Link to="/">Início</Link>
               </li>
 
-              {/* DROPDOWN */}
+              <li className='text-[12px] font-bold'>
+                <Link to="/paroquia">Paróquia</Link>
+              </li>              
 
-              <li
-                className="relative"
-                onMouseEnter={() => setOpenDropdown(true)}
-                onMouseLeave={() => setOpenDropdown(false)}
-              >
-
-                <div className="flex items-center cursor-pointer py-2">
-
-                  Paróquia
-
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 -960 960 960"
-                    width="15px"
-                    className="ml-1"
-                  >
-                    <path d="M480-360 280-560h400L480-360Z"/>
-                  </svg>
-
-                </div>
-
-                {openDropdown && (
-
-                  <div className="absolute top-full left-0 flex flex-col bg-white shadow-md rounded-md min-w-[220px] z-50">
-
-                    <Link
-                      to="/paroquia/historia-da-paroquia"
-                      className="px-4 py-2 hover:bg-gray-100"
-                    >
-                      História da Paróquia
-                    </Link>
-
-                    <Link
-                      to="/paroquia/horarios-de-missa"
-                      className="px-4 py-2 hover:bg-gray-100"
-                    >
-                      Horários de Missa
-                    </Link>
-
-                    <Link
-                      to="/albuns"
-                      className="px-4 py-2 hover:bg-gray-100"
-                    >
-                      Álbuns
-                    </Link>
-
-                  </div>
-
-                )}
-
-              </li>
-
-              <li>
+              <li className='text-[12px] font-bold'>
                 <Link to="/noticias">Notícias</Link>
               </li>
 
-              <li>
-                <Link to="/boletim-info">Boletim Info</Link>
+              <li className='text-[12px] font-bold'>
+                <Link to="/boletim-informativo">Boletim Informativo</Link>
               </li>
 
-              <li>
+              <li className='text-[12px] font-bold'>
                 <Link to="/contato">Contato</Link>
               </li>
 
@@ -123,7 +71,7 @@ const Navbar = () => {
               target='_blank'
               rel="noreferrer"
             >
-              <img className='w-[30px]' src={youtube_circle} alt="" />
+              <img className='w-[23px]' src={youtube_circle} alt="" />
             </a>
 
             <a
@@ -131,7 +79,7 @@ const Navbar = () => {
               target='_blank'
               rel="noreferrer"
             >
-              <img className='w-[30px]' src={facebook_circle} alt="" />
+              <img className='w-[23px]' src={facebook_circle} alt="" />
             </a>
 
             <a
@@ -139,26 +87,14 @@ const Navbar = () => {
               target='_blank'
               rel="noreferrer"
             >
-              <img className='w-[35px]' src={instagram_circle} alt="" />
-            </a>
-
-            <a
-              href="https://chat.whatsapp.com/EvxJksmUdIYDxzw5fUI99E"
-              target='_blank'
-              rel="noreferrer"
-            >
-              <img
-                className='w-[30px] rounded-[50%]'
-                src={whatsapp_square}
-                alt=""
-              />
-            </a>
+              <img className='w-[23px]' src={instagram_circle} alt="" />
+            </a>            
 
             <Link
               to="/login"
               className='flex justify-center items-center bg-[#034389] w-[100px] h-[30px] text-[#fff] rounded-[20px]'
             >
-              Área ADM
+              Login
             </Link>
 
           </div>
@@ -210,29 +146,15 @@ const Navbar = () => {
               to="/"
               onClick={() => setMenuMobile(false)}
             >
-              Home
+              Início
             </Link>
 
             <Link
-              to="/paroquia/historia-da-paroquia"
+              to="/paroquia"
               onClick={() => setMenuMobile(false)}
             >
-              História da Paróquia
-            </Link>
-
-            <Link
-              to="/paroquia/horarios-de-missa"
-              onClick={() => setMenuMobile(false)}
-            >
-              Horários de Missa
-            </Link>
-
-            <Link
-              to="/albuns"
-              onClick={() => setMenuMobile(false)}
-            >
-              Álbuns
-            </Link>
+              Paróquia
+            </Link>            
 
             <Link
               to="/noticias"
@@ -242,10 +164,10 @@ const Navbar = () => {
             </Link>
 
             <Link
-              to="/boletim-info"
+              to="/boletim-informativo"
               onClick={() => setMenuMobile(false)}
             >
-              Boletim Info
+              Boletim Informativo
             </Link>
 
             <Link
@@ -281,19 +203,7 @@ const Navbar = () => {
                 rel="noreferrer"
               >
                 <img className='w-[35px]' src={instagram_circle} alt="" />
-              </a>
-
-              <a
-                href="https://chat.whatsapp.com/EvxJksmUdIYDxzw5fUI99E"
-                target='_blank'
-                rel="noreferrer"
-              >
-                <img
-                  className='w-[30px] rounded-[50%]'
-                  src={whatsapp_square}
-                  alt=""
-                />
-              </a>
+              </a>              
 
             </div>
 
@@ -310,10 +220,6 @@ const Navbar = () => {
         </div>
 
       )}
-
-      {/* LINHA */}
-
-      <div className='mt-[10px] w-full h-[1px] bg-[#D9D9D9]'></div>
 
     </header>
 
