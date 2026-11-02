@@ -33,6 +33,27 @@ builder.Services.AddSingleton<AlbumService>();
 
 var app = builder.Build();
 
+// Aplica as migrations existentes do Entity Framework ao iniciar a API.
+// As tentativas permitem aguardar o MySQL terminar a inicialização no Docker.
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    var tentativas = 0;
+
+    while (true)
+    {
+        try
+        {
+            await db.Database.MigrateAsync();
+            break;
+        }
+        catch when (++tentativas < 30)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(2));
+        }
+    }
+}
+
 app.UseStaticFiles(new StaticFileOptions
 {
     ServeUnknownFileTypes = true

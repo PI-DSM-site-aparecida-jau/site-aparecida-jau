@@ -1,0 +1,43 @@
+DOCKER - API PAROQUIA NOSSA SENHORA APARECIDA
+
+REQUISITOS
+- Docker Desktop instalado e aberto.
+- Docker Compose (já incluído nas versões atuais do Docker Desktop).
+
+COMO INICIAR (Windows / PowerShell)
+1. Abra o terminal na pasta api-aparecida-jau (a mesma pasta deste arquivo).
+2. Copie .env.example para .env.
+   PowerShell: Copy-Item .env.example .env
+3. Se quiser, abra .env e troque as senhas de desenvolvimento.
+4. Execute: docker compose up --build
+5. Aguarde a primeira compilação e a inicialização dos bancos.
+6. A API ficará disponível em http://localhost:5220
+   Swagger: http://localhost:5220/swagger
+
+COMANDOS ÚTEIS
+- Ver containers: docker compose ps
+- Ver logs: docker compose logs -f api
+- Parar sem apagar os dados: docker compose down
+- Iniciar novamente: docker compose up -d
+- Parar E APAGAR os bancos: docker compose down -v
+  ATENÇÃO: o último comando apaga os volumes e os dados do MySQL e MongoDB.
+
+O QUE FOI CONFIGURADO
+- api: compila e executa o backend ASP.NET Core .NET 10.
+- mysql: MySQL 8, banco DB_APARECIDA_JAU.
+- mongo: MongoDB 6, banco paroquiaDB e coleção albuns criada automaticamente
+  pelo driver quando o primeiro álbum for gravado.
+- mysql-data e mongo-data: volumes persistentes dos bancos.
+- ./wwwroot:/app/wwwroot: mantém imagens e PDFs enviados pelo painel na pasta
+  wwwroot do projeto, fora do ciclo de vida do container.
+
+IMPORTANTE
+- Dentro do Docker, a API acessa os bancos pelos nomes mysql e mongo.
+- No navegador do seu computador, continue usando http://localhost:5220.
+- O mapeamento 3307:3306 mantém compatibilidade com o acesso local que estava
+  configurado no appsettings.json (porta 3307 no computador).
+- As senhas do .env são apenas para desenvolvimento. Não use esses valores em
+  produção nem envie um .env com senhas reais para o GitHub.
+- O backend possui migrations do Entity Framework. Na inicialização, a API
+  aplica essas migrations ao MySQL automaticamente.
+- Não execute docker compose down -v se quiser preservar os dados.
