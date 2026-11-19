@@ -1,44 +1,24 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo_aparecida from "./../assets/img/logo/logo-aparecida.png";
-import facebook_circle from "./../assets/img/logo/facebook-circle.png";
-import instagram_circle from "./../assets/img/logo/instagram-circle.png";
-import youtube_circle from "./../assets/img/logo/youtube-circle.png";
-import whatsapp_circle from "./../assets/img/logo/whatsapp-circle.png";
 
-const Navbar = () => {
+const linkClass = ({ isActive }) =>
+  `rounded-full px-4 py-2 text-sm font-semibold transition ${
+    isActive ? "bg-[#034389] text-white" : "text-[#034389] hover:bg-blue-50"
+  }`;
 
-    const [open, setOpen] = useState(false);
+const AdminNavbar = () => (
+  <header className="mt-2 flex flex-col items-center">
+    <Link to="/admin" aria-label="Ir para o painel administrativo">
+      <img className="w-[220px]" src={logo_aparecida} alt="Paróquia Nossa Senhora Aparecida" />
+    </Link>
+    <nav className="mt-4 flex w-full flex-wrap items-center justify-center gap-2 px-3 pb-4">
+      <NavLink end to="/admin" className={linkClass}>Visão geral</NavLink>
+      <NavLink to="/criar-noticia" className={linkClass}>Criar notícia</NavLink>
+      <NavLink to="/criar-album" className={linkClass}>Criar álbum</NavLink>
+      <NavLink to="/criar-boletim-info" className={linkClass}>Criar boletim</NavLink>
+    </nav>
+    <div className="h-px w-full bg-[#D9D9D9]" />
+  </header>
+);
 
-  return (
-    <header className='flex flex-col items-center mt-[8px]'>
-      <div>
-        <img className="w-[250px]" src={logo_aparecida} alt="" />
-      </div>
-
-      <div className='w-full h-[35px] flex justify-center relative'>
-
-        <nav className='flex items-center gap-[30px] list-none'>
-
-          <li>
-            <Link to="/criar-noticia">Criar Notícia</Link>
-          </li>
-
-          <li>
-            <Link to="/criar-album">Criar Álbum</Link>
-          </li>
-
-          <li>
-            <Link to="/criar-boletim-info">Criar Boletim Info</Link>
-          </li>
-
-        </nav>
-
-      </div>
-
-      <div className='mt-[10px] w-full h-[.1px] bg-[#D9D9D9]'></div>
-    </header>
-  );
-};
-
-export default Navbar;
+export default AdminNavbar;

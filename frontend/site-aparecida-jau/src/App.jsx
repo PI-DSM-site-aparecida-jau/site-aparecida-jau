@@ -16,119 +16,46 @@ import Albuns from "./pages/Albuns.jsx";
 import AlbumDetalhe from "./pages/AlbumDetalhe.jsx";
 
 import PrivateRoute from "./routes/PrivateRoute.jsx";
-
 import MainLayout from "./layouts/MainLayout.jsx";
 import AuthLayout from "./layouts/AuthLayout.jsx";
 import AdminLayout from "./layouts/AdminLayout.jsx";
 import WhatsAppButton from "./Components/WhatsAppButton.jsx";
+import PageViewTracker from "./Components/PageViewTracker.jsx";
 
 function App() {
-
   return (
-
     <BrowserRouter>
-
+      <PageViewTracker />
       <Routes>
-
         {/* SITE */}
-
         <Route element={<MainLayout />}>
-
           <Route path="/" element={<Home />} />
-
-          <Route
-            path="/paroquia/historia-da-paroquia"
-            element={<HistoriaDaParoquia />}
-          />
-
-          <Route
-            path="/paroquia/horarios-de-missa"
-            element={<HorariosDeMissa />}
-          />
-
-          <Route
-            path="/albuns"
-            element={<Albuns />}
-          />
-
-          <Route
-            path="/albuns/:slug"
-            element={<AlbumDetalhe />}
-          />
-
-          <Route
-            path="/boletim-info"
-            element={<BoletimInfo />}
-          />
-
-          <Route
-            path="/contato"
-            element={<Contato />}
-          />
-
-          <Route
-            path="/noticias"
-            element={<Noticias />}
-          />
-
-          <Route
-            path="/noticias/:slug"
-            element={<NoticiaDetalhe />}
-          />
-
+          <Route path="/paroquia/historia-da-paroquia" element={<HistoriaDaParoquia />} />
+          <Route path="/paroquia/horarios-de-missa" element={<HorariosDeMissa />} />
+          <Route path="/albuns" element={<Albuns />} />
+          <Route path="/albuns/:slug" element={<AlbumDetalhe />} />
+          <Route path="/boletim-info" element={<BoletimInfo />} />
+          <Route path="/contato" element={<Contato />} />
+          <Route path="/noticias" element={<Noticias />} />
+          <Route path="/noticias/:slug" element={<NoticiaDetalhe />} />
         </Route>
 
         {/* LOGIN */}
-
         <Route element={<AuthLayout />}>
-
-          <Route
-            path="/login"
-            element={<Login />}
-          />
-
+          <Route path="/login" element={<Login />} />
         </Route>
 
         {/* ADMIN */}
-
-        <Route
-          element={
-            <PrivateRoute>
-              <AdminLayout />
-            </PrivateRoute>
-          }
-        >
-
-          <Route
-            path="/admin"
-            element={<Admin />}
-          />
-
-          <Route
-            path="/criar-boletim-info"
-            element={<CriarBoletimInfo />}
-          />
-
-          <Route
-            path="/criar-noticia"
-            element={<CriarNoticia />}
-          />
-
-          <Route
-            path="/criar-album"
-            element={<CriarAlbum />}
-          />
-
+        <Route element={<PrivateRoute><AdminLayout /></PrivateRoute>}>
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/criar-boletim-info" element={<CriarBoletimInfo />} />
+          <Route path="/criar-noticia" element={<CriarNoticia />} />
+          <Route path="/criar-album" element={<CriarAlbum />} />
         </Route>
-
       </Routes>
-
       <WhatsAppButton />
-
     </BrowserRouter>
-
-  )
-
+  );
 }
 
 export default App;

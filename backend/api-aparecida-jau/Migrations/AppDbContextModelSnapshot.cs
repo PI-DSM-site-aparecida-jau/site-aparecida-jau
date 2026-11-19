@@ -22,6 +22,16 @@ namespace api_aparecida_jau.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+            modelBuilder.Entity("api_aparecida_jau.Models.AcessoSite", b =>
+            {
+                b.Property<int>("Id").ValueGeneratedOnAdd().HasColumnType("int");
+                MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+                b.Property<string>("Pagina").IsRequired().HasMaxLength(300).HasColumnType("varchar(300)");
+                b.Property<DateTime>("DataHoraUtc").HasColumnType("datetime(6)");
+                b.HasKey("Id");
+                b.ToTable("AcessosSite");
+            });
+
             modelBuilder.Entity("Noticia", b =>
                 {
                     b.Property<int>("Id")
@@ -30,29 +40,14 @@ namespace api_aparecida_jau.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Autor")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Conteudo")
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("Data")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("ImagemCapa")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Slug")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Subtitulo")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Titulo")
-                        .HasColumnType("longtext");
-
+                    b.Property<string>("Autor").HasColumnType("longtext");
+                    b.Property<string>("Conteudo").HasColumnType("longtext");
+                    b.Property<DateTime>("Data").HasColumnType("datetime(6)");
+                    b.Property<string>("ImagemCapa").HasColumnType("longtext");
+                    b.Property<string>("Slug").HasColumnType("longtext");
+                    b.Property<string>("Subtitulo").HasColumnType("longtext");
+                    b.Property<string>("Titulo").HasColumnType("longtext");
                     b.HasKey("Id");
-
                     b.ToTable("Noticias");
                 });
 
@@ -64,24 +59,11 @@ namespace api_aparecida_jau.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Data")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Img")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Pdf")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Titulo")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
+                    b.Property<string>("Data").IsRequired().HasColumnType("longtext");
+                    b.Property<string>("Img").IsRequired().HasColumnType("longtext");
+                    b.Property<string>("Pdf").IsRequired().HasColumnType("longtext");
+                    b.Property<string>("Titulo").IsRequired().HasColumnType("longtext");
                     b.HasKey("Id");
-
                     b.ToTable("boletinsInfos");
                 });
 
@@ -93,20 +75,10 @@ namespace api_aparecida_jau.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Senha")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Tipo")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
+                    b.Property<string>("Email").IsRequired().HasColumnType("longtext");
+                    b.Property<string>("Senha").IsRequired().HasColumnType("longtext");
+                    b.Property<string>("Tipo").IsRequired().HasColumnType("longtext");
                     b.HasKey("Id");
-
                     b.ToTable("Usuarios");
                 });
 #pragma warning restore 612, 618
